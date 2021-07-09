@@ -4,14 +4,14 @@ import 'package:flutter_bouncy/src/sliver_bouncy_list.dart';
 
 class BouncyList extends StatelessWidget {
   final bool reverse;
-  final ScrollController controller;
+  final ScrollController? controller;
   final SpringDescription springDescription;
   final Axis scrollDirection;
 
-  final List<Widget> children;
+  final List<Widget>? children;
 
-  final IndexedWidgetBuilder itemBuilder;
-  final int itemCount;
+  final IndexedWidgetBuilder? itemBuilder;
+  final int? itemCount;
 
   BouncyList({
     this.reverse = false,
@@ -27,8 +27,8 @@ class BouncyList extends StatelessWidget {
         itemCount = null;
 
   BouncyList.builder({
-    @required this.itemBuilder,
-    @required this.itemCount,
+    required this.itemBuilder,
+    required this.itemCount,
     this.reverse = false,
     this.controller,
     this.scrollDirection = Axis.vertical,
@@ -56,10 +56,10 @@ class BouncyList extends StatelessWidget {
 
   SliverChildDelegate _createDelegate() {
     if (children != null) {
-      return SliverChildListDelegate(children);
+      return SliverChildListDelegate(children!);
     } else {
       return SliverChildBuilderDelegate(
-        itemBuilder,
+        itemBuilder!,
         childCount: itemCount,
       );
     }
